@@ -1,0 +1,8 @@
+var WATCH_URL = '';
+var CLICK_ELEMENT = ''
+var AUTO_CLOSE_URL = '';
+
+
+window.WATCH_URL = WATCH_URL; 
+window.CLICK_ELEMENT = CLICK_ELEMENT; 
+window.AUTO_CLOSE_URL = AUTO_CLOSE_URL; 

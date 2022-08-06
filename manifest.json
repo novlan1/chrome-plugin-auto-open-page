@@ -1,0 +1,30 @@
+{
+	"manifest_version": 2,
+	"name": "自动打开网页",
+	"version": "1.0",
+	"description": "自动打开网页，需要提前注入env.local文件",
+	"author": "novlan1",
+	"icons": {
+		"48": "icon.png",
+		"128": "icon.png"
+	},
+	"browser_action": {
+		"default_icon": "icon.png",
+		"default_popup": "popup.html"
+	},
+	"content_scripts": [
+		{
+			"matches": [
+				"<all_urls>"
+			],
+			"js": [
+				"env.local.js",
+				"content-script.js"
+			],
+			"run_at": "document_start"
+		}
+	],
+	"web_accessible_resources": [
+		"inject.js"
+	]
+}
