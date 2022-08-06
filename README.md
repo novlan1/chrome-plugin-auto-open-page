@@ -1,6 +1,10 @@
 # chrome-plugin-auto-open-page
 
-自动打开网页
+自动打开网页的chrome插件
+
+
+_____
+
 
 需要自己提前写好env.local.js文件，格式如env.js，主要是注入以下几个变量：
 
