@@ -1,8 +1,8 @@
 ﻿console.log('这是content script!');
 
 const MAX_CLICK_TIMES = 1000;
-const WAIT_INTERVAL_TIME = 20000;
-const WAIT_CLOSE_TIME = 5000;
+const WAIT_INTERVAL_TIME = 70000;
+const WAIT_CLOSE_TIME = 50000;
 
 let time = 0;
 
@@ -33,6 +33,7 @@ function clickElement(cb) {
 
 	setTimeout(() => {
 	  cb();
+		console.log(`执行了一次cb, times: ${time}`)
 	  clickElement(cb)
 	}, WAIT_INTERVAL_TIME)
 }
