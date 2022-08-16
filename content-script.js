@@ -3,6 +3,7 @@
 const MAX_CLICK_TIMES = 1000;
 const WAIT_INTERVAL_TIME = 70000;
 const WAIT_CLOSE_TIME = 50000;
+let AUTO_CLOSE_URL ='';
 
 let time = 0;
 
@@ -16,12 +17,17 @@ function autoClosePage() {
 function autoOpenPage() {
 	console.log('autoOpenPage')
 	if (window.location.href !== WATCH_URL) {
-		console.log('\x1B[31m%s\x1B[0m', '不是WATCH_URL～');
+		console.log('\x1B[31m%s\x1B[0m', '不是WATCH_URL, Bye~');
 		return;
 	}
+
 	const element = document.querySelector(CLICK_ELEMENT)
-	console.log('正在点击')
+	if (element.href) {
+		console.log('\x1B[32m%s\x1B[0m', 'AUTO_CLOSE_URL为： ', AUTO_CLOSE_URL);
+		AUTO_CLOSE_URL = element.href;
+	}
 	if (!element) return;
+	console.log('正在点击~')
 	clickElement(() => {
 		element.click();
 	})
