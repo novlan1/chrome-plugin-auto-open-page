@@ -8,7 +8,8 @@ let AUTO_CLOSE_URL ='';
 let time = 0;
 
 function autoClosePage() {
-	if (window.location.href !== AUTO_CLOSE_URL) return;
+	if (![AUTO_CLOSE_URL, EXTRA_AUTO_CLOSE_URL].includes(window.location.href)) return;
+	console.log('即将自动关闭～')
 	setTimeout(() => {
 		window.close();
 	}, WAIT_CLOSE_TIME)
@@ -23,8 +24,8 @@ function autoOpenPage() {
 
 	const element = document.querySelector(CLICK_ELEMENT)
 	if (element.href) {
-		console.log('\x1B[32m%s\x1B[0m', 'AUTO_CLOSE_URL为： ', AUTO_CLOSE_URL);
 		AUTO_CLOSE_URL = element.href;
+		console.log('\x1B[32m%s\x1B[0m', 'AUTO_CLOSE_URL为： ', AUTO_CLOSE_URL);
 	}
 	if (!element) return;
 	console.log('正在点击~')
