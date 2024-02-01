@@ -19,7 +19,7 @@
 			],
 			"js": [
 				"env.local.js",
-				"content-script.js"
+				"content-script.watch-course.js"
 			],
 			"run_at": "document_start"
 		}
