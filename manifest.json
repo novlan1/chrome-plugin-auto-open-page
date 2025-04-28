@@ -1,6 +1,6 @@
 {
-	"manifest_version": 2,
 	"name": "自动打开网页",
+	"manifest_version": 3,
 	"version": "1.0",
 	"description": "自动打开网页，需要提前注入env.local文件",
 	"author": "novlan1",
@@ -19,12 +19,10 @@
 			],
 			"js": [
 				"env.local.js",
-				"content-script.watch-course.js"
+				"content-script.watch-course.js",
+				"content-script.dianping.js"
 			],
 			"run_at": "document_start"
 		}
-	],
-	"web_accessible_resources": [
-		"inject.js"
 	]
 }
