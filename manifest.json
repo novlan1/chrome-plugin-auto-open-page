@@ -19,7 +19,6 @@
 			],
 			"js": [
 				"env.local.js",
-				"content-script.watch-course.js",
 				"content-script.dianping.js"
 			],
 			"run_at": "document_start"

@@ -5,15 +5,20 @@ document.addEventListener('DOMContentLoaded', function()
 });
 const hrefList = []
 const justHold = (time) => new Promise(resolve => setTimeout(resolve, time))
+const baseUrl = 'https://www.dianping.com/shanghai/ch30/g20042'
+const onlyRunUrl = 'https://www.google.com'
 
 async function openAllData() {
-  const base = 'https://www.dianping.com/shanghai/ch30/g20042'
-  const list = Array.from({length: 50}).map((_, index) => `${base}p${index+1}`).slice(13, 50)
+  const list = Array.from({length: 50}).map((_, index) => `${baseUrl}p${index+1}`).slice(40, 50)
   console.log('list', list)
   return list;
 }
 
 async function getListInfo() {
+  if (!window.location.href.includes(baseUrl)) {
+    return;
+  }
+
   const list = [...document.querySelectorAll('.shop-all-list ul li')]
   for (const item of list) {
     const pic = item.querySelector('.pic a')
@@ -28,6 +33,9 @@ async function getListInfo() {
 
 async function getDetail() {
   const prefix = 'https://www.dianping.com/shop/'
+  if (!window.location.href.includes(prefix)) {
+    return;
+  }
 
   const core = document.querySelector('body script').textContent.replace(/window\.__xhrCache__\s*\=\s*/, '')
   console.log('window.getDetail', JSON.parse(core))
@@ -45,22 +53,8 @@ async function getDetail() {
   await window.close();
 }
 
-const ELEMENTS = {
-  NEXT_TASK: '.el-button.el-button--primary.el-button--mini',
-  TASK_STATUS:  '.task-status .done-text'
-}
-
-let watchTimer = null
-
-function checkFinished() {
-  const dom = document.querySelector(ELEMENTS.TASK_STATUS)
-  const finished = !!dom
-  return finished;
-}
 
 async function checkWatchTimes() {
-  // const finished = checkFinished();
-
   if (window.location.href.includes('dianping.com')) {
     try {
       await getDetail();
@@ -73,10 +67,12 @@ async function checkWatchTimes() {
     return;
   }
 
-  const list = await openAllData();
-  for (const item of list) {
-    await window.open(item)
-    await justHold(3000)
-    await window.close();
+  if (window.location.href.includes(onlyRunUrl)) {
+    const list = await openAllData();
+    for (const item of list) {
+      await window.open(item)
+      await justHold(3000)
+      await window.close();
+    }
   }
 }
