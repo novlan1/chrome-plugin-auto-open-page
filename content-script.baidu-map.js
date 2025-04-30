@@ -132,9 +132,9 @@ async function loopFetch(allList, cityName) {
 }
 
 
-function getGetCityList() {
-  const allCities = [...document.querySelectorAll('tbody tr a')];
-  console.log('[allCities]', allCities);
-  const cityNames = allCities.map(item => item.innerText?.trim());
-  console.log('cityNames', JSON.stringify(cityNames));
-}
+// function getGetCityList() {
+//   const allCities = [...document.querySelectorAll('tbody tr a')];
+//   console.log('[allCities]', allCities);
+//   const cityNames = allCities.map(item => item.innerText?.trim());
+//   console.log('cityNames', JSON.stringify(cityNames));
+// }
