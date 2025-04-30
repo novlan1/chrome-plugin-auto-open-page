@@ -1,10 +1,10 @@
 const glob = require('glob');
 const { readFileSync, writeFileSync, generateCSVData, generateCSV } = require('t-comm');
 
-const TARGET_GLOB = './data/dianping/data-*.json';
+const TARGET_GLOB = './data-2025-04-30/dianping/data-*.json';
 
-const PARSED_DATA_FILE = './data/dianping-parsed.json';
-const PARSED_DATA_FILE_CSV =  './data/dianping-parsed.csv';
+const PARSED_DATA_FILE = './data-2025-04-30/dianping-parsed.json';
+const PARSED_DATA_FILE_CSV =  './data-2025-04-30/dianping-parsed.csv';
 const GET_CITY_REG = /data-(.+).json/;
 const REPEAT_DATA_GLOB = /data-.*?\s*\(\d\).json/;
 const CORE_INFO_KEY = '/mapi.dianping.com/mapi/base/unify/shop.bin';
@@ -12,9 +12,11 @@ const CORE_INFO_KEY = '/mapi.dianping.com/mapi/base/unify/shop.bin';
 
 function findRepeatData() {
   const list = glob.sync(TARGET_GLOB);
-  console.log('list', list);
+  // console.log('list', list);
   const result = list.filter(item => REPEAT_DATA_GLOB.test(item));
-  console.log('重复数据有：', result.join('\n'));
+  if (result.length) {
+    console.log('重复数据有：', result.join('\n'));
+  }
 }
 
 

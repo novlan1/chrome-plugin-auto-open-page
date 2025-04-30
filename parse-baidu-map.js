@@ -1,11 +1,14 @@
 const glob = require('glob');
 const { readFileSync, writeFileSync, generateCSVData, generateCSV } = require('t-comm');
 
-const TARGET_GLOB = './data/baidu-map/baidu-map-*.json';
+const TARGET_GLOB = './data-2025-04-30/baidu-map/baidu-map-*.json';
 
-const PARSED_DATA_FILE = './data/baidu-map-parsed.json';
-const PARSED_DATA_FILE_CSV =  './data/baidu-map-parsed.csv';
+const PARSED_DATA_FILE = './data-2025-04-30/baidu-map-parsed.json';
+const PARSED_DATA_FILE_CSV =  './data-2025-04-30/baidu-map-parsed.csv';
+const CITY_PROVINCE_JSON_FILE = './city-province.json';
 const GET_CITY_REG = /baidu-map-(.+).json/;
+
+const CITY_PROVINCE_JSON = readFileSync(CITY_PROVINCE_JSON_FILE, true);
 
 
 function parseBaiduData(list, city) {
@@ -18,6 +21,7 @@ function parseBaiduData(list, city) {
         name,
         city,
         phone: phone.replace(/^电话:/, ''),
+        province: CITY_PROVINCE_JSON[city],
       };
     });
 }
@@ -43,8 +47,9 @@ function main() {
   const csvData = generateCSVData(result, {
     name: '名称',
     address: '地址',
-    city: '城市',
     phone: '电话',
+    city: '城市',
+    province: '省份',
   });
 
   const csv = generateCSV(csvData);
