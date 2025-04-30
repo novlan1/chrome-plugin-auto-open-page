@@ -8,8 +8,14 @@ const justHold = (time) => new Promise(resolve => setTimeout(resolve, time))
 const baseUrl = 'https://www.dianping.com/shanghai/ch30/g20042'
 const onlyRunUrl = 'https://www.google.com'
 
+
+function getRandomNumber(min, max) {
+  const result = Math.random() * (max - min) + min;
+  return result;
+}
+
 async function openAllData() {
-  const list = Array.from({length: 50}).map((_, index) => `${baseUrl}p${index+1}`).slice(40, 50)
+  const list = Array.from({length: 50}).map((_, index) => `${baseUrl}p${index+1}`).slice(41, 43)
   console.log('list', list)
   return list;
 }
@@ -26,7 +32,7 @@ async function getListInfo() {
     console.log('href', href)
     hrefList.push(href)
     await window.open(href)
-    await justHold(5000)
+    await justHold(getRandomNumber(1000, 4000))
   }
   await window.close();
 }
@@ -49,7 +55,7 @@ async function getDetail() {
   a.href = url;
   a.download = `data-${key}.json`;
   a.click();
-  await justHold(5000)
+  await justHold(getRandomNumber(2000, 5000))
   await window.close();
 }
 
@@ -71,7 +77,7 @@ async function checkWatchTimes() {
     const list = await openAllData();
     for (const item of list) {
       await window.open(item)
-      await justHold(3000)
+      await justHold(15*5000)
       await window.close();
     }
   }
