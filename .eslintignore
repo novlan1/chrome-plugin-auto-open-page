@@ -1,0 +1,12 @@
+/dist/
+/lib/
+/es/
+/node_modules/
+/public/
+/config/
+/repo/
+
+!/docs/.vuepress/
+/docs/.vuepress/dist/*
+
+barcode/

@@ -1,0 +1,18 @@
+{
+  "name": "chrome-plugin-auto-open-page",
+  "version": "1.0.0",
+  "description": "自动打开网页的chrome插件",
+  "main": "content-script.baidu-map.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "glob": "^11.0.2",
+    "t-comm": "^1.5.15"
+  },
+  "devDependencies": {
+    "eslint-config-light": "^1.5.5"
+  }
+}
