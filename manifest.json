@@ -19,7 +19,7 @@
 			],
 			"js": [
 				"env.local.js",
-				"content-script.baidu-map.js"
+				"content-script.gaode-map.js"
 			],
 			"run_at": "document_start"
 		}
