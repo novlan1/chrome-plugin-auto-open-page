@@ -9,6 +9,56 @@ function getRandomNumber(min, max) {
   const result = Math.random() * (max - min) + min;
   return result;
 }
+const MIDDLE_START_CONFIG = {
+  cityIndex: 38,
+  shopIndex: 18,
+  notChangeUrl: true,
+};
+
+async function slide(sliderBtn) {
+  for (let i = 0;i < 300;i += 10) {
+    await justHold(100);
+    sliderBtn.style.left = `${i}px`;
+  }
+}
+
+function checkSlider() {
+  const sliderBtn = document.querySelector('.nc_iconfont.btn_slide');
+  if (!sliderBtn) {
+    return;
+  }
+  slide(sliderBtn);
+}
+
+function hookXhr(cb) {
+  const originalOpen = XMLHttpRequest.prototype.open;
+  console.log('originalOpen', originalOpen);
+  XMLHttpRequest.prototype.open = function (method, url) {
+    this._url = url; // 记录请求URL
+    originalOpen.apply(this, arguments);
+  };
+
+  const originalSend = XMLHttpRequest.prototype.send;
+  XMLHttpRequest.prototype.send = function () {
+    this.addEventListener('load', function () {
+      console.log('this', this);
+      if (this.readyState === 4) {
+        console.log('XHR response:', this.responseText); // 获取响应数据
+        cb({
+          type: 'xhr_response',
+          data: this.responseText,
+          url: this._url,
+        });
+        // resolve({
+        //   type: 'xhr_response',
+        //   data: this.responseText,
+        //   url: this._url,
+        // });
+      }
+    });
+    originalSend.apply(this, arguments);
+  };
+}
 
 
 async function saveData(data, fileName) {
@@ -52,15 +102,75 @@ async function goNext() {
   return false;
 }
 
-async function main() {
-  await justHold(getRandomNumber(2000, 4000));
-  const TOTAL = 369;
-  const START_PAGE = 0;
-  for (let i = START_PAGE;i < TOTAL;i++) {
-    const cityName = await switchCity(i);
+
+const DOMS = {
+  SHOP_ITEM: '.serp-list li.poibox.poibox-normal.amap-marker',
+};
+
+
+async function enterEachDetailPage(cityIndex, pageIndex = 0) {
+  await justHold(getRandomNumber(3000, 5000));
+  const shops = await document.querySelectorAll(DOMS.SHOP_ITEM);
+  const { length } = shops;
+
+  const firstShopIndex = MIDDLE_START_CONFIG.cityIndex === cityIndex && pageIndex === 0
+    ? MIDDLE_START_CONFIG.shopIndex
+    : 0;
+
+  for (let i = firstShopIndex;i < length;i++) {
+    const shops = await document.querySelectorAll(DOMS.SHOP_ITEM);
+    const shop = shops[i];
+
+    console.log('shop', shop);
+    await shop.click();
+    await justHold(getRandomNumber(1500, 2000));
+    const backBtn = await document.querySelector('#placereturnfixed i');
+    backBtn?.click();
+    await justHold(getRandomNumber(10000, 30000));
+  }
+
+  const nextPageButton = await document.querySelector('.paging-next .icon-chevronright');
+  if (!nextPageButton) {
     return;
-    const allList = [];
-    await loopFetch(allList, cityName || `city-${i}`);
+  }
+  await nextPageButton?.click();
+
+  await justHold(getRandomNumber(1000, 2000));
+  const nextShops = await document.querySelectorAll(`${DOMS.SHOP_ITEM} .poi-imgbox`);
+
+  if (nextShops) {
+    await enterEachDetailPage(cityIndex, pageIndex + 1);
+  }
+}
+
+async function main() {
+  hookXhr(({ url, data }) => {
+    if (url.startsWith('/detail/get/detail')) {
+      const reg = /detail\?id=(\w+)$/;
+
+      const match = url.match(reg);
+      console.log('match', match);
+
+      const fileName = match?.[1] || url;
+      console.log('fileName', fileName);
+      saveData(data, `gaode-${fileName}.json`);
+    }
+  });
+
+
+  await justHold(getRandomNumber(3000, 4000));
+  const TOTAL = 369;
+  const START_PAGE = MIDDLE_START_CONFIG.cityIndex;
+  for (let i = START_PAGE;i < TOTAL;i++) {
+    // const cityName =
+    if (!MIDDLE_START_CONFIG.notChangeUrl || i !== START_PAGE) {
+      await switchCity(i);
+    }
+    await enterEachDetailPage(i, 0);
+
+    // return;
+    // const allList = [];
+    // await loopFetch(allList, cityName || `city-${i}`);
   }
 }
 
@@ -73,15 +183,15 @@ async function switchCity(cityIndex = 0) {
     btn.click();
   }
 
-  await justHold(getRandomNumber(1000, 2000));
+  await justHold(getRandomNumber(100, 200));
   const cityButton = document.querySelector('.city-city-title');
   console.log('[cityButton]', cityButton);
   if (cityButton) {
     cityButton.click();
   }
 
-  await justHold(getRandomNumber(1000, 2000));
-  const allCities = [...document.querySelectorAll('li[adcode]')];
+  await justHold(getRandomNumber(100, 200));
+  const allCities = [...document.querySelectorAll('dd li[adcode]')];
   console.log('[allCities]', allCities);
 
   const targetCity = allCities?.[cityIndex];
@@ -90,21 +200,22 @@ async function switchCity(cityIndex = 0) {
     targetCity.click();
   }
 
-  await justHold(getRandomNumber(2000, 5000));
+  await justHold(getRandomNumber(200, 500));
   const searchInput = document.querySelector('.iptbox input');
   console.log('[searchInput]', searchInput);
   if (searchInput) {
     searchInput.click();
   }
-  await justHold(getRandomNumber(2000, 5000));
+  await justHold(getRandomNumber(200, 500));
 
   searchInput.value = '网吧';
 
-  await justHold(getRandomNumber(1000, 2000));
-  const searchButton = document.querySelector('.iptbox input');
+  await justHold(getRandomNumber(100, 200));
+  const searchButton = document.querySelector('#searchbtn i');
   console.log('[searchButton]', searchButton);
-  searchButton?.click();
-  await justHold(getRandomNumber(2000, 4000));
+  searchButton.click();
+  await justHold(getRandomNumber(200, 400));
+
 
   // const firstSuggestItem = document.querySelector('.ui3-suggest-item')
   // console.log('[firstSuggestItem]', firstSuggestItem)
