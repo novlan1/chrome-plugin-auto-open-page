@@ -10,25 +10,25 @@ function getRandomNumber(min, max) {
   return result;
 }
 const MIDDLE_START_CONFIG = {
-  cityIndex: 38,
-  shopIndex: 18,
+  cityIndex: 45,
+  shopIndex: 0,
   notChangeUrl: true,
 };
 
-async function slide(sliderBtn) {
-  for (let i = 0;i < 300;i += 10) {
-    await justHold(100);
-    sliderBtn.style.left = `${i}px`;
-  }
-}
+// async function slide(sliderBtn) {
+//   for (let i = 0;i < 300;i += 10) {
+//     await justHold(100);
+//     sliderBtn.style.left = `${i}px`;
+//   }
+// }
 
-function checkSlider() {
-  const sliderBtn = document.querySelector('.nc_iconfont.btn_slide');
-  if (!sliderBtn) {
-    return;
-  }
-  slide(sliderBtn);
-}
+// function checkSlider() {
+//   const sliderBtn = document.querySelector('.nc_iconfont.btn_slide');
+//   if (!sliderBtn) {
+//     return;
+//   }
+//   slide(sliderBtn);
+// }
 
 function hookXhr(cb) {
   const originalOpen = XMLHttpRequest.prototype.open;
@@ -72,35 +72,35 @@ async function saveData(data, fileName) {
   a.click();
 }
 
-async function getList() {
-  const list = [...document.querySelectorAll('.poilist li')];
-  console.log('list', list);
+// async function getList() {
+//   const list = [...document.querySelectorAll('.poilist li')];
+//   console.log('list', list);
 
-  const data = list.map((item) => {
-    // console.log('item', item)
-    const name = item.querySelector('.ml_30 .row span a')?.innerText.trim();
-    const address = item.querySelector('.ml_30 .row.addr span')?.innerText.trim();
-    const phone = item.querySelector('.ml_30 .row.tel')?.innerText?.trim() || '';
-    const info = {
-      name,
-      address,
-      phone,
-    };
-    // console.log('info', info)
-    return info;
-  });
-  return data;
-}
+//   const data = list.map((item) => {
+//     // console.log('item', item)
+//     const name = item.querySelector('.ml_30 .row span a')?.innerText.trim();
+//     const address = item.querySelector('.ml_30 .row.addr span')?.innerText.trim();
+//     const phone = item.querySelector('.ml_30 .row.tel')?.innerText?.trim() || '';
+//     const info = {
+//       name,
+//       address,
+//       phone,
+//     };
+//     // console.log('info', info)
+//     return info;
+//   });
+//   return data;
+// }
 
-async function goNext() {
-  const nextButton = document.querySelector('a[tid=toNextPage]');
-  console.log('nextButton', nextButton);
-  if (nextButton && !nextButton.className.includes('next-none')) {
-    nextButton.click();
-    return true;
-  }
-  return false;
-}
+// async function goNext() {
+//   const nextButton = document.querySelector('a[tid=toNextPage]');
+//   console.log('nextButton', nextButton);
+//   if (nextButton && !nextButton.className.includes('next-none')) {
+//     nextButton.click();
+//     return true;
+//   }
+//   return false;
+// }
 
 
 const DOMS = {
@@ -225,24 +225,24 @@ async function switchCity(cityIndex = 0) {
 }
 
 
-async function loopFetch(allList, cityName) {
-  await justHold(getRandomNumber(2000, 4000));
-  const list = await getList();
-  allList.push(...list);
+// async function loopFetch(allList, cityName) {
+//   await justHold(getRandomNumber(2000, 4000));
+//   const list = await getList();
+//   allList.push(...list);
 
-  const hasNext = await goNext();
-  console.log('hasNext', hasNext);
-  console.log('allList.length', allList.length);
-  if (!hasNext) {
-    if (allList.length) {
-      saveData(JSON.stringify(allList), `baidu-map-${cityName}.json`);
-    } else {
-      console.log('数据为空，无需下载');
-    }
-  } else {
-    await loopFetch(allList, cityName);
-  }
-}
+//   const hasNext = await goNext();
+//   console.log('hasNext', hasNext);
+//   console.log('allList.length', allList.length);
+//   if (!hasNext) {
+//     if (allList.length) {
+//       saveData(JSON.stringify(allList), `baidu-map-${cityName}.json`);
+//     } else {
+//       console.log('数据为空，无需下载');
+//     }
+//   } else {
+//     await loopFetch(allList, cityName);
+//   }
+// }
 
 
 // function getGetCityList() {
