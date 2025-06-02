@@ -1,0 +1,48 @@
+{
+  "data": {
+    "src_info": [],
+    "review": {},
+    "share_url": "",
+    "spec": {
+      "mining_shape": {
+        "sp_type": "",
+        "center": "",
+        "shape_type": ""
+      }
+    },
+    "base": {
+      "classify": "公用电话",
+      "shop_info": {
+        "claim": 2
+      },
+      "city_adcode": "654300",
+      "code": "654301",
+      "distance": 0,
+      "title": "公共设施",
+      "city_name": "阿勒泰地区",
+      "sp_mark": 0,
+      "poi_tag_has_t_tag": 0,
+      "checked": "4",
+      "tag": "公共设施;公用电话;公用电话",
+      "new_type": "200200",
+      "address": "阿勒泰地区阿勒泰市金山路28号",
+      "business": "other",
+      "importance_vip_flag": 0,
+      "std_t_tag_0_v": "网吧",
+      "telephone": "",
+      "new_keytype": "公共设施;公用电话;公用电话",
+      "cre_flag": 0,
+      "pixelx": "199933353",
+      "pixely": "93473554",
+      "navi_geometry": "88.130746,47.855722",
+      "name": "中国网通话吧",
+      "x": "88.131006",
+      "y": "47.855427",
+      "poiid": "B0IUP1FPSS",
+      "end_poi_extension": "1",
+      "poi_tag": "",
+      "geodata": {}
+    }
+  },
+  "status": "1"
+}

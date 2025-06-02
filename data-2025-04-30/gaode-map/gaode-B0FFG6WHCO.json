@@ -1,0 +1,50 @@
+{
+  "data": {
+    "src_info": [],
+    "review": {},
+    "share_url": "http://wb.amap.com/?p=B0FFG6WHCO%2C39.417175%2C106.660869%2C%E9%80%9F%E8%85%BE%E7%BD%91%E7%BB%9C%E4%BC%9A%E6%89%80%2C%E9%98%BF%E6%8B%89%E5%96%84%E7%9B%9F%E9%98%BF%E6%8B%89%E5%96%84%E5%B7%A6%E6%97%97%E5%86%85%E8%92%99%E5%8F%A4%E9%98%BF%E6%8B%89%E5%96%84%E7%BB%8F%E6%B5%8E%E5%BC%80%E5%8F%91%E5%8C%BA%E9%80%9F%E8%85%BE%E7%BD%91%E7%BB%9C%E4%BC%9A%E6%89%80",
+    "pic_cover": {
+      "url": "http://store.is.autonavi.com/showpic/d5f609c3227a139b6da7d930798c0885"
+    },
+    "spec": {
+      "mining_shape": {
+        "sp_type": "",
+        "shape": "",
+        "center": "",
+        "shape_type": ""
+      }
+    },
+    "base": {
+      "classify": "娱乐场所",
+      "shop_info": {
+        "claim": 0
+      },
+      "city_adcode": "152900",
+      "code": "152921",
+      "distance": 0,
+      "title": "娱乐休闲",
+      "city_name": "阿拉善盟",
+      "sp_mark": 0,
+      "poi_tag_has_t_tag": 0,
+      "checked": "2",
+      "tag": "体育休闲服务;娱乐场所;网吧",
+      "new_type": "080308",
+      "address": "阿拉善盟阿拉善左旗内蒙古阿拉善经济开发区速腾网络会所",
+      "business": "internet_bar",
+      "importance_vip_flag": 0,
+      "std_t_tag_0_v": "网吧",
+      "new_keytype": "体育休闲服务;娱乐场所;网吧",
+      "cre_flag": 0,
+      "pixelx": "213749836",
+      "pixely": "102188985",
+      "name": "速腾网络会所",
+      "x": "106.660869",
+      "y": "39.417175",
+      "poiid": "B0FFG6WHCO",
+      "end_poi_extension": "0",
+      "poi_tag": "",
+      "geodata": {}
+    }
+  },
+  "status": "1"
+}

@@ -1,0 +1,50 @@
+{
+  "data": {
+    "src_info": [],
+    "review": {},
+    "share_url": "",
+    "pic_cover": {
+      "url": "http://store.is.autonavi.com/showpic/1fa5f1237ee794b698a6eba61de9bbf5"
+    },
+    "spec": {
+      "mining_shape": {
+        "sp_type": "",
+        "center": "",
+        "shape_type": ""
+      }
+    },
+    "base": {
+      "classify": "娱乐场所",
+      "shop_info": {
+        "claim": 0
+      },
+      "city_adcode": "520400",
+      "code": "520425",
+      "distance": 0,
+      "title": "娱乐休闲",
+      "city_name": "安顺市",
+      "sp_mark": 0,
+      "poi_tag_has_t_tag": 0,
+      "checked": "2",
+      "tag": "体育休闲服务;娱乐场所;网吧",
+      "new_type": "080308",
+      "address": "安顺市紫云苗族布依族自治县旱带路与花园街交叉口西50米",
+      "business": "internet_bar",
+      "importance_vip_flag": 0,
+      "std_t_tag_0_v": "网吧",
+      "telephone": "",
+      "new_keytype": "体育休闲服务;娱乐场所;网吧",
+      "cre_flag": 6,
+      "pixelx": "213319110",
+      "pixely": "114332652",
+      "name": "5号网络",
+      "x": "106.084061",
+      "y": "25.753183",
+      "poiid": "B0FFG0THYH",
+      "end_poi_extension": "0",
+      "poi_tag": "",
+      "geodata": {}
+    }
+  },
+  "status": "1"
+}

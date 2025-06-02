@@ -1,0 +1,48 @@
+{
+  "data": {
+    "src_info": [],
+    "review": {},
+    "share_url": "http://wb.amap.com/?p=B0LG2S8H4U%2C39.210034%2C101.669504%2C%E7%BA%AF%E6%B0%A7%E7%94%B5%E7%AB%9E%E9%A6%86%2C%E9%98%BF%E6%8B%89%E5%96%84%E7%9B%9F%E9%98%BF%E6%8B%89%E5%96%84%E5%8F%B3%E6%97%97%E6%A0%91%E8%B4%B5%E8%B7%AF%E4%B8%8E%E5%9B%A2%E7%BB%93%E5%B7%B7%E4%BA%A4%E5%8F%89%E5%8F%A3%E4%B8%9C20%E7%B1%B3",
+    "spec": {
+      "mining_shape": {
+        "sp_type": "",
+        "shape": "",
+        "center": "",
+        "shape_type": ""
+      }
+    },
+    "base": {
+      "classify": "娱乐场所",
+      "shop_info": {
+        "claim": 0
+      },
+      "city_adcode": "152900",
+      "code": "152922",
+      "distance": 0,
+      "title": "娱乐休闲",
+      "city_name": "阿拉善盟",
+      "sp_mark": 0,
+      "poi_tag_has_t_tag": 0,
+      "checked": "3",
+      "tag": "体育休闲服务;娱乐场所;网吧",
+      "new_type": "080308",
+      "address": "阿拉善盟阿拉善右旗树贵路与团结巷交叉口东20米",
+      "business": "internet_bar",
+      "importance_vip_flag": 0,
+      "std_t_tag_0_v": "网吧",
+      "new_keytype": "体育休闲服务;娱乐场所;网吧",
+      "cre_flag": 0,
+      "pixelx": "210028005",
+      "pixely": "102388622",
+      "navi_geometry": "101.669221,39.209922",
+      "name": "纯氧电竞馆",
+      "x": "101.669504",
+      "y": "39.210034",
+      "poiid": "B0LG2S8H4U",
+      "end_poi_extension": "1",
+      "poi_tag": "",
+      "geodata": {}
+    }
+  },
+  "status": "1"
+}

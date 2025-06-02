@@ -1,0 +1,71 @@
+{
+  "data": {
+    "src_info": [],
+    "review": {},
+    "share_url": "http://wb.amap.com/?p=B0J2L5Z3HY%2C39.897784%2C116.669704%2C%E9%B9%8F%E7%BE%BD%E7%94%B5%E7%AB%9E%E9%A6%86(%E9%80%9A%E5%B7%9E%E7%81%AB%E8%BD%A6%E7%AB%99%E5%BA%97)%2C%E5%8C%97%E4%BA%AC%E5%B8%82%E9%80%9A%E5%B7%9E%E5%8C%BA%E7%8E%89%E6%A1%A5%E8%A5%BF%E8%B7%AF9%E5%8F%B7",
+    "pic_cover": {
+      "url": "http://store.is.autonavi.com/showpic/a6a025c6eb4510117ed637642bf96723"
+    },
+    "spec": {
+      "mining_shape": {
+        "sp_type": "",
+        "center": "",
+        "shape_type": ""
+      }
+    },
+    "base": {
+      "brand_code": "AM0086341",
+      "classify": "娱乐场所",
+      "shop_info": {
+        "claim": 1
+      },
+      "city_adcode": "110000",
+      "code": "110112",
+      "distance": 0,
+      "title": "娱乐休闲",
+      "city_name": "北京市",
+      "sp_mark": 0,
+      "poi_tag_has_t_tag": 0,
+      "checked": "4",
+      "tag": "体育休闲服务;娱乐场所;网吧",
+      "new_type": "080308",
+      "address": "北京市通州区玉桥西路3号",
+      "business": "internet_bar",
+      "importance_vip_flag": 0,
+      "std_t_tag_0_v": "网吧",
+      "telephone": "13240316377",
+      "new_keytype": "体育休闲服务;娱乐场所;网吧",
+      "cre_flag": 0,
+      "pixelx": "221212965",
+      "pixely": "101723492",
+      "navi_geometry": "116.670318,39.898643",
+      "name": "鹏羽电竞馆(通州火车站店)",
+      "x": "116.669162",
+      "y": "39.898678",
+      "poiid": "B0J2L5Z3HY",
+      "end_poi_extension": "1",
+      "poi_tag": "",
+      "geodata": {
+        "aoi": [
+          {
+            "area": 34555.293389,
+            "name": "皓月苑",
+            "mainpoi": "B000A7RHS3"
+          }
+        ],
+        "landmark": [
+          {
+            "count": 1,
+            "hot_info": {
+              "distance": "2484",
+              "name": "韩美林艺术馆(九棵树东路辅路)",
+              "poiid": "B0FFFBYA33"
+            },
+            "type": 4
+          }
+        ]
+      }
+    }
+  },
+  "status": "1"
+}
